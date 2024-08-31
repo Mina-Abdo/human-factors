@@ -15,5 +15,8 @@ loginForm.addEventListener('submit', function(event){
         errorMessage.style.fontSize = '20px';
         errorMessage.style.textAlign = 'center';
         document.getElementById('login').appendChild(errorMessage);
+        setTimeout(() => {
+            errorMessage.remove();
+        }, 2000);
     }
 })
