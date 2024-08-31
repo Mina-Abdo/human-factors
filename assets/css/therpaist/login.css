@@ -17,6 +17,9 @@
 #login h2,#login label, #login input, #login a{
     margin-top: 2%;
 }
+#login input[type='submit']{
+    width: 100% !important;
+}
 #login a{
     width: 100%;
     background-repeat: repeat, no-repeat, no-repeat !important;
