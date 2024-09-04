@@ -1,0 +1,19 @@
+/* Divided */
+
+ul.therapist-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+  ul.therapist-list li {
+    border-top: solid 1px #d2d7dc;
+    padding-top: 1em;
+    margin-top: 1em;
+    padding-left: 0;
+  }
+
+    ul.therapist-list li:first-child {
+      padding-top: 0;
+      margin-top: 0;
+      border-top: 0;
+    }
