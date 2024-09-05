@@ -32,7 +32,7 @@ h2{
     display: inline-block !important;
 }
 .profile:hover, .recommendations:hover, .booking:hover{
-    background-color: #a2eaba;
+    background-color: #a0ea81;
     color: #fff;
     font-weight: bold;
     transition: none !important;
@@ -46,11 +46,11 @@ h2{
     padding: 8px 12px;
     margin: 2px;
     border: 1px solid #ddd;
-    background-color: #f1f1f1;
+    background-color: #e4d0d0;
     cursor: pointer;
 }
 .pagination button.active {
-    background-color: #4CAF50;
+    background-color: #a0ea81;
     color: white;
 }
 .pagination button.disabled {

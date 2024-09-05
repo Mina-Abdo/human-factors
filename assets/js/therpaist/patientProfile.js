@@ -42,6 +42,9 @@ if(sleepHrs.textContent < 6){
 if(sleepLogs.textContent < 7){
     sleepLogs.style.color = 'red';
     sleepLogs.style.fontWeight = 'bold';
+}else{
+    sleepLogs.style.color = 'green';
+    sleepLogs.style.fontWeight = 'bold';
 }
 for(let i = 0; i<excerciseLogs.length; i ++){
     if(excerciseLogs[i].textContent < 7){
