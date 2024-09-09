@@ -1,6 +1,5 @@
 #login-wrapper{
     display: flex;
-    height: 100vh;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -16,6 +15,9 @@
 }
 #login h2,#login label, #login input, #login a{
     margin-top: 2%;
+}
+#login input[type='submit']{
+    width: 100% !important;
 }
 #login a{
     width: 100%;

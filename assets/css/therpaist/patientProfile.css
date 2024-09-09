@@ -1,0 +1,32 @@
+#patientInfo{
+    margin: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#patientInfo p span{
+    font-weight: bold;
+}
+#medication h2, #sleep h2, #excercise h2{
+    margin: 3%;
+}
+#medication table, #sleep table, #excercise table{
+    margin: 3%;
+    width: 90%;
+    border-collapse: collapse;
+}
+#medication table th, #medication table td, #sleep table th, #sleep table td, #excercise table th,
+#excercise table td{
+    border: #f8dddd solid 2px;
+    padding: 5px;
+    vertical-align: middle;
+    text-align: center;
+}
+#medication table td, #sleep table td, #excercise table td{
+    padding-left: 2%;
+}
+#medication table thead, #sleep table thead, #excercise table thead{
+    background-color: #cdcbcb;
+    color: #000;
+    font-weight: bolder;
+}

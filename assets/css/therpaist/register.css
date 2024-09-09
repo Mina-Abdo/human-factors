@@ -1,0 +1,36 @@
+#register-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#register{
+    width: 50% !important;
+    border: #f8dddd solid 2px;
+    margin: 5%;
+    padding: 3%;
+}
+#register h2{
+    text-align: center;
+}
+#register h2,#register label, #register input, #register a{
+    margin-top: 2%;
+}
+#page-wrapper{
+    height: 100vh;
+}
+#registerSubmit{
+    width: 100%;
+}
+#footer-wrapper{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+#copyright{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+#header-wrapper{
+    /* margin: 0 !important; */
+    padding: 3% !important;
+}
