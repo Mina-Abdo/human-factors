@@ -1,0 +1,36 @@
+
+/* Hide the dropdown by default */
+#loginDropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+    border-radius: 8px; /* Rounds the corners */
+    padding: 5px 0;
+    list-style-type: none;
+    min-width: 100px;
+    top: 80px; /* Position the dropdown under the login */
+    z-index: 10;
+}
+
+/* Dropdown item links */
+#loginDropdown li {
+    padding: 10px 20px;
+}
+
+#loginDropdown li a {
+    text-decoration: none;
+    display: block;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+#loginDropdown li a:hover {
+    background-color: #ddd;
+}
+
+/* Optional: Add a smooth transition for when the dropdown appears/disappears */
+#loginDropdown.show {
+    display: block; /* This will make the dropdown visible when the class "show" is added */
+    animation: fadeIn 0.3s; /* Optional fade-in effect */
+}
