@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const rowsPerPage = 10;
+    const rowsPerPage = 7;
     const table = document.getElementById("patients");
     const rows = table.querySelectorAll("tbody tr");
     const paginationControls = document.getElementById("pagination-controls");

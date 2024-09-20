@@ -22,14 +22,24 @@ h2{
 }
 .actions{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 .actions a{
     border: none;
     text-align: center;
 }
 .profile{
-    display: inline-block !important;
+    /* display: inline-block !important; */
+}
+.profile i{
+    color: #f6bcbc;
+}
+.recommendations i{
+    color: #f6bcbc;
+}
+.booking i{
+    color: #f6bcbc;
 }
 .profile:hover, .recommendations:hover, .booking:hover{
     background-color: #a0ea81;
