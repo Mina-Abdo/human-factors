@@ -5,7 +5,7 @@ loginForm.addEventListener('submit', function(event){
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
     if(email && password){
-        window.location.href = "therapistIndex.html";
+        window.location.href = "therapistIndex.php";
     }else{
         let errorMessage = document.createElement('div');
         errorMessage.id = 'errorMessage';

@@ -27,6 +27,7 @@ CREATE TABLE User(
     therapist INT NOT NULL,
     updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     last_visit TIMESTAMP NULL, 
+    next_visit TIMESTAMP NULL,
     needs_followup BOOLEAN NOT NULL DEFAULT 0,
     diaries VARCHAR(200) NULL,
     notes INT NULL,

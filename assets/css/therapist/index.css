@@ -22,14 +22,24 @@ h2{
 }
 .actions{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 .actions a{
     border: none;
     text-align: center;
 }
 .profile{
-    display: inline-block !important;
+    /* display: inline-block !important; */
+}
+.profile i{
+    color: #f6bcbc;
+}
+.recommendations i{
+    color: #f6bcbc;
+}
+.booking i{
+    color: #f6bcbc;
 }
 .profile:hover, .recommendations:hover, .booking:hover{
     background-color: #a0ea81;
@@ -56,4 +66,13 @@ h2{
 .pagination button.disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+.followup-button {
+    width: 50% !important;
+    height: 30px;
+    padding: 3px !important;
+    margin-left: 15% !important;
+}
+.followed{
+    background-color: #ff9b9b !important;
 }

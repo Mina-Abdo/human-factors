@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const rowsPerPage = 10;
+    const rowsPerPage = 7;
     const table = document.getElementById("patients");
     const rows = table.querySelectorAll("tbody tr");
     const paginationControls = document.getElementById("pagination-controls");
@@ -112,4 +112,86 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     updateTable(); // Initialize the table with the first page
+});
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Get all follow-up buttons
+//     const followupButtons = document.querySelectorAll('.followup-button');
+
+//     // Loop through each button and attach a click event
+//     followupButtons.forEach(function(button) {
+//         button.addEventListener('click', function() {
+//             const userId = this.getAttribute('data-user-id');
+//             let needsFollowup = this.getAttribute('data-followup') == '1'; // Get current follow-up state
+//             console.log(needsFollowup)
+
+//             // Toggle follow-up state (true -> false, false -> true)
+//             needsFollowup = !needsFollowup;
+//             this.setAttribute('data-needs-followup', needsFollowup ? '1' : '0');
+
+//             // Update the row background color based on the follow-up state
+//             const row = document.getElementById('row_' + userId);
+//             if (needsFollowup) {
+//                 row.style.backgroundColor = '#ff9b9b'; // Indicate follow-up needed
+//             } else {
+//                 row.style.backgroundColor = '#fff'; // Reset background color
+//             }
+
+//             // Send an AJAX request to update the follow-up status in the database
+//             const xhr = new XMLHttpRequest();
+//             xhr.open('POST', '../assets/php/updateUserFollowup.php', true);
+//             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//             xhr.onreadystatechange = function() {
+//                 if (xhr.readyState === 4 && xhr.status === 200) {
+//                     console.log(xhr.responseText);
+//                 }
+//             };
+//             xhr.send('user_id=' + userId + '&needs_followup=' + (needsFollowup ? 1 : 0));
+//         });
+//     });
+// });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all follow-up buttons
+    const followupButtons = document.querySelectorAll('.followup-button');
+
+    // Loop through each button and attach a click event
+    followupButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const userId = this.getAttribute('data-user-id');
+            let needsFollowup = this.getAttribute('data-followup') === '1'; // Get current follow-up state
+
+            // Toggle follow-up state (true -> false, false -> true)
+            needsFollowup = !needsFollowup;
+            this.setAttribute('data-followup', needsFollowup ? '1' : '0');
+
+            // Update the row background color based on the follow-up state IMMEDIATELY
+            const row = document.getElementById('row_' + userId);
+            if (needsFollowup) {
+                row.style.backgroundColor = '#ff9b9b'; // Follow-up needed (red)
+            } else {
+                row.style.backgroundColor = '#ffffff'; // Reset background to white
+            }
+
+            // Send an AJAX request to update the follow-up status in the database
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '../assets/php/updateUserFollowup.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            // Send user ID and new follow-up state
+            xhr.send('user_id=' + userId + '&needs_followup=' + (needsFollowup ? 1 : 0));
+
+            // Handle the server response
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        console.log('Follow-up status updated successfully.');
+                    } else {
+                        console.error('Failed to update follow-up status. Error: ' + xhr.status);
+                        alert('There was an error updating the follow-up status.');
+                    }
+                }
+            };
+        });
+    });
 });
