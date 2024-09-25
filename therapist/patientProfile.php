@@ -32,7 +32,6 @@
 						</nav>
 					</div>
                 </div>
-<<<<<<< HEAD
                 <section id='profile-wrapper'>
                     <?php
                         session_start();
@@ -160,83 +159,6 @@
                 </section>
 
                 
-=======
-                <section id="profile-wrapper">
-                    <div id="patientInfo">
-                        <p>Patient: <span>Melly Carter</span></p>
-                        <p>ID: <span>cart1001</span> </p>
-                    </div>
-                    <div id="medication">
-                        <h2>Medication: </h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Medicine</th>
-                                    <th>Dose</th>
-                                    <th>No of doses per day</th>
-                                    <th>No of patient logs per day</th>
-                                    <th>No of of days logs per week</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>medicine 1</td>
-                                    <td>30 mg</td>
-                                    <td id="medicationDose">3</td>
-                                    <td id="medicineDailyLog">2</td>
-                                    <td id="medicineWeeklyLog">7</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div id="sleep">
-                        <h2>Sleep: </h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Daily sleep Hours</th>
-                                    <th>NO of Logs per week</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td id="sleepHrs">6</td>
-                                    <td id="sleepLogs">7</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div id="excercise">
-                        <h2>Excercise: </h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Excercise type</th>
-                                    <th>Daily duration</th>
-                                    <th>NO of Logs per week</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Running</td>
-                                    <td>30 mins</td>
-                                    <td class="excerciseLogs">5</td>
-                                </tr>
-                                <tr>
-                                    <td>Swimming</td>
-                                    <td>20 mins</td>
-                                    <td class="excerciseLogs">7</td>
-                                </tr>
-                                <tr>
-                                    <td>Other</td>
-                                    <td>120 mins</td>
-                                    <td class="excerciseLogs">1</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
->>>>>>> f8dc66878a7abe3170730321777ddf6cd6002fd1
         <!-- Footer -->
 		<div id="footer-wrapper">
 			<div id="copyright" class="container">
