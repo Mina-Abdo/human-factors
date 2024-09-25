@@ -38,6 +38,7 @@
 					<h2>Patients Data</h2>
 					<table id="patients">
 						<thead>
+<<<<<<< HEAD
 							<tr>
 								<th>Patient Name</th>
 								<th>Last visit</th>
@@ -76,6 +77,27 @@
             							echo "<input type='hidden' name='user_id' value='" . htmlspecialchars($row['id']) . "'>";
             							echo "<button type='submit' class='booking'><i class='fas fa-business-time'></i></button>";
             							echo "</form>";
+=======
+							<!-- <th>Patient ID</th> -->
+							<th>Patient Name</th>
+							<th>Last visit</th>
+							<th>Actions</th>
+						</thead>
+						<tbody>
+						<?php 
+							require_once "../assets/inc/dbconn.inc.php" ;
+							$sql = "SELECT id, name, email, last_visit FROM User WHERE therapist=1";
+							if($results = mysqli_query($conn, $sql)){
+								if(mysqli_num_rows($results) >= 1){
+									while($row = mysqli_fetch_assoc($results)){
+										echo "<tr>";
+										echo "<td>". htmlspecialchars($row["name"])."</td>";
+										echo "<td>".htmlspecialchars($row['last_visit'])."</td>";
+										echo "<td class='actions'>";
+										echo "<a href=patientProfile.php' class='profile'><i class='fas fa-user'></i></a>";
+										echo "<a href='' class = 'recommendations'><i class='fas fa-book'></i></a>";
+										echo "<a href='' class = 'booking'><i class='fas fa-business-time'></i> </a>";
+>>>>>>> f8dc66878a7abe3170730321777ddf6cd6002fd1
 										echo "</td>";
 										echo "</tr>";
 									}
