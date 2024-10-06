@@ -1,0 +1,17 @@
+#profile-wrapper{
+    display: flex;
+    justify-content: center;
+}
+form{
+    margin: 3%;
+    padding: 2%;
+    width: 70%;
+    border: 1px solid #f6bcbc;
+}
+input[type='time'], input[type='date']{
+    display: block;
+    border: 2px solid #f6bcbc;
+}
+input[type='submit']{
+    margin-top: 3%;
+}

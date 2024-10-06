@@ -26,7 +26,7 @@
                                 <a href="#" id="user-icon">user name</i></a>
                                 <ul id="dropdown" class="dropdown-content">
                                     <li><a href="therapistProfile.html">profile</a></li>
-                                    <li><a href="../index.html">logout</a></li>
+                                    <li><a href="login.php">logout</a></li>
                                 </ul>
                             </li>
                         </ul>

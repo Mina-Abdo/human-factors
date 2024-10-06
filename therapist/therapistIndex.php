@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+	<?php session_start(); ?>
     <head>
         <title>therpay clinic</title>
 		<meta charset="utf-8" />
@@ -26,7 +27,7 @@
 									<a href="#" id="user-icon">user name</i></a>
 									<ul id="dropdown" class="dropdown-content">
 										<li><a href="therapistProfile.php">profile</a></li>
-										<li><a href="../index.php">logout</a></li>
+										<li><a href="login.php">logout</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -47,7 +48,7 @@
 						</thead>
 						<tbody>
 						<?php 
-							session_start();
+							
 							require_once "../assets/inc/dbconn.inc.php" ;
 							$sql = "SELECT * FROM User WHERE therapist=1";
 							if($results = mysqli_query($conn, $sql)){
@@ -68,13 +69,13 @@
             							echo "<input type='hidden' name='user_id' value='" . htmlspecialchars($row['id']) . "'>";
             							echo "<button type='submit' class='profile'><i class='fas fa-user'></i></button>";
             							echo "</form>";
-										echo "<form action='patientProfile.php' method='post'>";
+										// echo "<form action='editProfile.php' method='post'>";
+            							// echo "<input type='hidden' name='user_id' value='" . htmlspecialchars($row['id']) . "'>";
+            							// echo "<button type='submit' class='recommendations'><i class='fas fa-calendar-check'></i></button>";
+            							// echo "</form>";
+										echo "<form action='bookingPatientSession.php' method='post'>";
             							echo "<input type='hidden' name='user_id' value='" . htmlspecialchars($row['id']) . "'>";
-            							echo "<button type='submit' class='recommendations'><i class='fas fa-book'></i></button>";
-            							echo "</form>";
-										echo "<form action='patientProfile.php' method='post'>";
-            							echo "<input type='hidden' name='user_id' value='" . htmlspecialchars($row['id']) . "'>";
-            							echo "<button type='submit' class='booking'><i class='fas fa-business-time'></i></button>";
+            							echo "<button type='submit' class='booking'><i class='fas fa-calendar-check'></i></button>";
             							echo "</form>";
 										echo "</td>";
 										echo "</tr>";

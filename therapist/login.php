@@ -19,7 +19,7 @@
 					</div>
                 </div>
                 <div id="login-wrapper">
-                    <form id="login" method="post" action="therapistIndex.php">
+                    <form id="login" method="post" action="auth/login.php">
                         <h2>Therapist Login</h2>
                         <label for="email">Email:</label>
                         <input id="email" name="email" type="email" placeholder="Enter your Email">
@@ -43,5 +43,5 @@
         </div>
     </body>
     <!-- scripts -->
-     <script src="../assets/js/therapist/login.js"></script>
+     <!-- <script src="../assets/js/therapist/login.js"></script> -->
 </html>

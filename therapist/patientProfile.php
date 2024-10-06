@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="../assets/css/main.css" />
     <link rel="stylesheet" href="../assets/css/therapist/headerAndFooter.css"/>
     <link rel="stylesheet" href="../assets/css/therapist/patientProfile.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Patient Profile</title>
 </head>
 <body class="homepage is-preload">
@@ -25,7 +26,7 @@
 									<a href="#" id="user-icon">user name</i></a>
 									<ul id="dropdown" class="dropdown-content">
 										<li><a href="#">profile</a></li>
-										<li><a href="../index.html">logout</a></li>
+										<li><a href="login.php">logout</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -35,6 +36,9 @@
                 <section id='profile-wrapper'>
                     <?php
                         session_start();
+                        require_once __DIR__ . '/../vendor/autoload.php';  // Adjust the path to where your vendor folder is
+
+                        use PhpOffice\PhpWord\IOFactory;
                         // Check if the form has been submitted with a valid user_id
                         if (isset($_POST['user_id'])) {
                             // Store the user ID in the session
@@ -77,8 +81,9 @@
                                         <th>Medicine</th>
                                         <th>Dose</th>
                                         <th>No of doses per day</th>
-                                        <th>No of patient logs per day</th>
-                                        <th>No of of days logs per week</th>
+                                        <th>logs per day</th>
+                                        <th>logs per week</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>";
@@ -97,10 +102,20 @@
                                         echo "<td id='medicationDose'>" . htmlspecialchars($medicine['dose_per_day']) . "</td>";
                                         echo "<td id='medicineDailyLog'>" . htmlspecialchars($medicine['dose_daily_logs']) . "</td>";
                                         echo "<td id='medicineWeeklyLog'>" . htmlspecialchars($medicine['dose_weekly_logs']) . "</td>";
+                                        echo "<td class='actions'>";
+                                        echo "<form action='editMedicine.php' method='post'>";
+            							echo "<input type='hidden' name='medicine_id' value='" . htmlspecialchars($medicine['id']) . "'>";
+            							echo "<button type='submit' class='edit'><i class='fas fa-edit'></i></button>";
+            							echo "</form>";
+                                        echo "<form action='controllers/deleteMedicine.php' method='post'>";
+            							echo "<input type='hidden' name='medicine_id' value='" . htmlspecialchars($medicine['id']) . "'>";
+            							echo "<button type='submit' class='delete'><i class='fas fa-trash'></i></button>";
+            							echo "</form>";
+                                        echo "</td>";
                                     echo "</tr>";
                                 }
                             }else{
-                                echo "<tr><td colspan='5'>No Medication for this patient.</td></tr>";
+                                echo "<tr><td colspan='6'>No Medication for this patient.</td></tr>";
                             }
                             echo "</tbody>
                             </table>
@@ -122,7 +137,7 @@
                                 echo "</tbody>
                                         </table>
                                     </div>";
-                                    echo "<div id='excercise'>
+                            echo "<div id='excercise'>
                             <h2>Excercise: </h2>
                             <table>
                                 <thead>
@@ -147,7 +162,7 @@
                                         echo "</tr>";
                                     }
                                 }else{
-                                    echo "<p> No exercise for this user. </p>";
+                                    echo "<tr><td colspan='3'> No exercise for this user. </td></tr>";
                                 }
                                 echo "</tbody>
                                 </table>
@@ -155,7 +170,81 @@
                         } else {
                             echo "User not found.";
                         }
+                        echo "<div id='log'>
+                            <h2>Diaires: </h2>";
+                            $filePath = dirname(__DIR__) . "/assets/docs/users/" . htmlspecialchars($row['diaries']); // Sanitize the file path to avoid injection
+                            echo "<div>";
+                            // Check if the file exists and is readable
+                            if (file_exists($filePath) && is_readable($filePath)) {
+                                try {
+                                    // Load the .docx file
+                                    $phpWord = IOFactory::load($filePath);
+                            
+                                    // Initialize a variable to hold the extracted content
+                                    $content = '';
+                            
+                                    // Iterate over sections and elements to extract content
+                                    foreach ($phpWord->getSections() as $section) {
+                                        foreach ($section->getElements() as $element) {
+                                            // Handle simple text elements
+                                            if (method_exists($element, 'getText')) {
+                                                $content .= $element->getText() ."<br>";
+                                            }                                            
+                                        }
+                                    }
+                            
+                                    // Sanitize and display the extracted content on the page
+                                    echo $content;
+                            
+                                } catch (Exception $e) {
+                                    // Handle errors while loading or parsing the file
+                                    echo 'Document does not exist ';
+                                }
+                            } else {
+                                // Handle the case where the file doesn't exist or can't be read
+                                echo "<p>Log file not found or cannot be opened.</p>";
+                            }
                     ?>
+                    </div>
+                    </div>
+                    <div id="notes">
+                        <h2>Notes:</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Uploaded</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $notes_sql = "SELECT * FROM Notes WHERE user = ?";
+                                $stmt2 = mysqli_prepare($conn, $notes_sql);
+                                mysqli_stmt_bind_param($stmt2, 'i', $userId);
+                                mysqli_stmt_execute($stmt2);
+                                $notes_result = mysqli_stmt_get_result($stmt2);
+                                // print_r($notes_result);
+                                if(mysqli_num_rows($exercise_result)>= 1){
+                                    while($notes_row = mysqli_fetch_assoc($notes_result)){
+                                        echo "<tr>";
+                                        echo "<td>" . htmlspecialchars($notes_row['note']) . "</td>";
+                                        echo "<td>" . htmlspecialchars((new DateTime($notes_row['updated']))->format('d M Y, h:i A')) . "</td>";
+                                        echo "</tr>";
+                                    }
+                                }else{
+                                    echo "<tr><td colspan='3'> No Notes for this user. </td></tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <form id="notesForm" method="post" action="controllers/uploadTherapistNotes.php" enctype="multipart/form-data">
+                            <label for="notes">Attach notes</label>
+                            <input name="notes" type="file" required>
+                            <input type="submit" value="Upload">
+                        </form>
+                    </div>
+                    <!-- <input type="file">
+                    <label></label> -->
                 </section>
 
                 
