@@ -118,8 +118,12 @@
                                 echo "<tr><td colspan='6'>No Medication for this patient.</td></tr>";
                             }
                             echo "</tbody>
-                            </table>
-                            </div>";
+                            </table>";
+                            echo "<form method='post' action='addMedicine.php'>
+                            <input type='hidden' name='user_id' value='" . htmlspecialchars($row['id'])."'>";
+                            echo "<input type='submit'  value='Add medicine'>
+                            </form>";
+                            echo "</div>";
                             echo "<div id='sleep'>
                             <h2>Sleep: </h2>
                             <table>
