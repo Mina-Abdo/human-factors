@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Execute the query
             if (mysqli_stmt_execute($stmt)) {
                 // Success, redirect to the patient's profile page or a success page
-                header("Location: ../patientProfile.php");
+                header("Location: ../patientProfile.php?edit_medicine=success");
                 exit;
             } else {
                 // If something went wrong during execution

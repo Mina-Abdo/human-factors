@@ -76,3 +76,6 @@ h2{
 .followed{
     background-color: #ff9b9b !important;
 }
+.success-message{
+    display: none;
+}

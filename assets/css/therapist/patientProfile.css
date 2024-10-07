@@ -62,3 +62,6 @@
 #medication form input{
     margin-left: 3%;
 }
+.success-message{
+    display: none;
+}

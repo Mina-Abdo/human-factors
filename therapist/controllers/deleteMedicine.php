@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['medicine_id'])) {
         // Execute the query
         if (mysqli_stmt_execute($stmt)) {
             // Deletion successful, redirect to the patient's profile page
-            header("Location: ../patientProfile.php");
+            header("Location: ../patientProfile.php?medicine_deleted=success");
             exit;
         } else {
             // If there was an issue executing the query

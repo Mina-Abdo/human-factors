@@ -37,6 +37,7 @@
 				
                 <div id="body-wrapper">
 					<h2>Patients Data</h2>
+					<div id="success-message" class="success-message">Medicine updated successfully!</div>
 					<table id="patients">
 						<thead>
 							<tr>

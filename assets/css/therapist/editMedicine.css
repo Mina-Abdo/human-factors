@@ -17,4 +17,5 @@ form input[type='number']:focus, form input:focus{
 }
 form input{
     margin-top: 2%;
+    /* color: #c8f3a8; */
 }

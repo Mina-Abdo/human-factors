@@ -195,3 +195,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if the URL contains 'edit_medicine=success'
+    let urlParams = new URLSearchParams(window.location.search);
+    const successMessage = document.getElementById('success-message');
+        successMessage.style.display = 'block';  // Show the message
+        successMessage.style.marginLeft = '3%';
+        successMessage.style.marginRight = '3%';
+        successMessage.style.backgroundColor = '#c8f3a8';
+        successMessage.style.textAlign = 'center';
+    if (urlParams.get('booking') === 'success') {
+        successMessage.innerHTML = "Patient booking successfully placed."
+        // Hide the message after 2 seconds
+        setTimeout(function() {
+            successMessage.style.display = 'none';
+        }, 2100);
+    }
+});

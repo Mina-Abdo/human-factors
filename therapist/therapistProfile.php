@@ -17,7 +17,7 @@
                 <div id="header" class="container">
 
                     <!-- Logo -->
-                        <h1 id="logo"><a href="../index.php">Website name</a></h1>
+                        <h1 id="logo"><a href="therapistIndex.php">Website name</a></h1>
                     <!-- Nav -->
                     <nav id="nav">
                         <ul>

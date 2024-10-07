@@ -1,8 +1,8 @@
 <?php
 session_start();
 // Handle file upload
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['notes']) && isset($_SESSION['user_id']) && isset($_SESSION['therapist_id'])) {
-    $userId = $_SESSION['user_id'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['notes']) && isset($_POST['user_id']) && isset($_SESSION['therapist_id'])) {
+    $userId = $_POST['user_id'];
     $therapistId = $_SESSION['therapist_id'];
 
     // Define the target directory to save the uploaded file
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['notes']) && isset($_
         mysqli_stmt_bind_param($stmt, 'iis', $userId, $therapistId, $fileName);
 
         if (mysqli_stmt_execute($stmt)) {
-            header("location: ../patientProfile.php");
+            header("location: ../patientProfile.php?notes_upload=success");
             echo "<p>Notes file uploaded and saved successfully.</p>";
         } else {
             echo "Error saving file info in the database: " . mysqli_error($conn);

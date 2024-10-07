@@ -17,7 +17,7 @@
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="../index.html">Website name</a></h1>
+							<h1 id="logo"><a href="therapistIndex.php">Website name</a></h1>
                         <!-- Nav -->
 						<nav id="nav">
 							<ul>
@@ -75,6 +75,7 @@
                             echo "</div>";
                             echo "<div id='medication'>
                             <h2>Medication: </h2>
+                            <div id='success-message' class='success-message'></div>
                             <table>
                                 <thead>
                                     <tr>
@@ -175,7 +176,7 @@
                             echo "User not found.";
                         }
                         echo "<div id='log'>
-                            <h2>Diaires: </h2>";
+                            <h2>Patient Diaires: </h2>";
                             $filePath = dirname(__DIR__) . "/assets/docs/users/" . htmlspecialchars($row['diaries']); // Sanitize the file path to avoid injection
                             echo "<div>";
                             // Check if the file exists and is readable
@@ -212,7 +213,7 @@
                     </div>
                     </div>
                     <div id="notes">
-                        <h2>Notes:</h2>
+                        <h2>Notes for patient:</h2>
                         <table>
                             <thead>
                                 <tr>
@@ -242,6 +243,7 @@
                             </tbody>
                         </table>
                         <form id="notesForm" method="post" action="controllers/uploadTherapistNotes.php" enctype="multipart/form-data">
+                            <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($userId) ?>">
                             <label for="notes">Attach notes</label>
                             <input name="notes" type="file" required>
                             <input type="submit" value="Upload">

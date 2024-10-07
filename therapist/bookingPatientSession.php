@@ -17,7 +17,7 @@
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="../index.html">Website name</a></h1>
+							<h1 id="logo"><a href="therapistIndex.php">Website name</a></h1>
                         <!-- Nav -->
 						<nav id="nav">
 							<ul>
@@ -52,9 +52,9 @@
                         <input type="hidden" name="user_id" value="<?php echo $userId; ?>">
                         <label for="last_visit">Last visit</label>
                         <input type="text" value="<?php echo htmlspecialchars($user['name']) ?>" disabled>
-                        <label for="appointment-date">Choose a date for your appointment:</label>
+                        <label for="appointment-date">Choose a date for next appointment:</label>
                         <input type="date" id="appointment-date" name="appointment-date">
-                        <label for="appointment-time">Choose a time for your appointment:</label>
+                        <label for="appointment-time">Choose a time for next appointment:</label>
                         <input type="time" id="appointment-time" name="appointment-time">
                         <input type="submit" value="Submit">
                     </form>
