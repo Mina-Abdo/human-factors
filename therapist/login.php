@@ -15,11 +15,11 @@
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="../index.html">Website name</a></h1>
+							<h1 id="logo"><a href="../index.php">Website name</a></h1>
 					</div>
                 </div>
                 <div id="login-wrapper">
-                    <form id="login" method="post" action="therapistIndex.html">
+                    <form id="login" method="post" action="auth/login.php">
                         <h2>Therapist Login</h2>
                         <label for="email">Email:</label>
                         <input id="email" name="email" type="email" placeholder="Enter your Email">
@@ -28,7 +28,7 @@
                         <input type="submit" class="button" id="loginSubmit">
                         <div id="wrapper">
                             <a id="forgot-password" href="#">Forgot password?</a>
-                            <a id="register" href="register.html">Register</a>
+                            <a id="register" href="register.php">Register</a>
                         </div>
                     </form>
                 </div>
@@ -43,5 +43,5 @@
         </div>
     </body>
     <!-- scripts -->
-     <script src="../assets/js/therapist/login.js"></script>
+     <!-- <script src="../assets/js/therapist/login.js"></script> -->
 </html>

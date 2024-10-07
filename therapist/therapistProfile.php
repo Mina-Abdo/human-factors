@@ -17,7 +17,7 @@
                 <div id="header" class="container">
 
                     <!-- Logo -->
-                        <h1 id="logo"><a href="../index.html">Website name</a></h1>
+                        <h1 id="logo"><a href="therapistIndex.php">Website name</a></h1>
                     <!-- Nav -->
                     <nav id="nav">
                         <ul>
@@ -26,7 +26,7 @@
                                 <a href="#" id="user-icon">user name</i></a>
                                 <ul id="dropdown" class="dropdown-content">
                                     <li><a href="therapistProfile.html">profile</a></li>
-                                    <li><a href="../index.html">logout</a></li>
+                                    <li><a href="login.php">logout</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -1,0 +1,21 @@
+#body-wrapper{
+    display: flex;
+    justify-content: center;
+}
+form{
+    margin: 3%;
+    padding: 2%;
+    width: 75%;
+    border: 1px solid #f8dddd;
+}
+form input[type='number']{
+    width: 100%;
+    border: none;
+}
+form input[type='number']:focus, form input:focus{
+    border: 3px solid #f8dddd !important;
+}
+form input{
+    margin-top: 2%;
+    /* color: #c8f3a8; */
+}

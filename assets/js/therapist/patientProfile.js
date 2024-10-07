@@ -55,3 +55,29 @@ for(let i = 0; i<excerciseLogs.length; i ++){
         excerciseLogs[i].style.fontWeight = 'bold';
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if the URL contains 'edit_medicine=success'
+    let urlParams = new URLSearchParams(window.location.search);
+    const successMessage = document.getElementById('success-message');
+        successMessage.style.display = 'block';  // Show the message
+        successMessage.style.backgroundColor = "#c8f3a8";
+        successMessage.style.marginLeft = "3%";
+        successMessage.style.marginRight = "3%";
+        successMessage.style.textAlign = 'center';
+    if (urlParams.get('edit_medicine') === 'success') {
+        successMessage.innerHTML = "Medicine edited successfully";
+    }
+    if(urlParams.get('notes_upload' ) === 'success'){
+        successMessage.innerHTML = "Notes uploaded successfully";
+        
+    }
+    if(urlParams.get('add_medicine') === 'success'){
+        successMessage.innerHTML = "Medicine added successfully";
+    }
+    if(urlParams.get('medicine_deleted') === 'success'){
+        successMessage.innerHTML = 'Medicine deleted successfully';
+    }
+    setTimeout(function() {
+        successMessage.style.display = 'none';
+    }, 2100);
+});

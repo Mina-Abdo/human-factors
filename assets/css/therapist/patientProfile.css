@@ -7,26 +7,61 @@
 #patientInfo p span{
     font-weight: bold;
 }
-#medication h2, #sleep h2, #excercise h2{
+#medication h2, #sleep h2, #excercise h2, #log h2, #log div, #notes h2{
     margin: 3%;
 }
-#medication table, #sleep table, #excercise table{
+#medication table, #sleep table, #excercise table, #notes table{
     margin: 3%;
-    width: 90%;
+    width: 95%;
     border-collapse: collapse;
 }
 #medication table th, #medication table td, #sleep table th, #sleep table td, #excercise table th,
-#excercise table td{
+#excercise table td, #notes table th, #notes table td{
     border: #f8dddd solid 2px;
     padding: 5px;
     vertical-align: middle;
     text-align: center;
 }
-#medication table td, #sleep table td, #excercise table td{
+#medication table td, #sleep table td, #excercise table td, #notes table td{
     padding-left: 2%;
+    width: auto;
 }
-#medication table thead, #sleep table thead, #excercise table thead{
+#medication table thead, #sleep table thead, #excercise table thead, #notes table thead{
     background-color: #cdcbcb;
     color: #000;
     font-weight: bolder;
+}
+#notes form {
+    margin: 3%;
+    display: flex;
+    flex-direction: column;
+}
+#notes form input[type='submit']{
+    width: 15% !important;
+    margin-top: 2%;
+    height: 5% !important;
+    /* border: #f6bcbc 1px solid; */
+}
+.delete i, .edit i{
+    color: #f6bcbc;
+}
+.delete:hover{
+    background-color: #f94a4a;
+}
+.edit:hover{
+    background-color: #a0ea81;
+}
+.delete:hover i, .edit:hover i{
+    color: #fff;
+}
+.actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly ;
+}
+#medication form input{
+    margin-left: 3%;
+}
+.success-message{
+    display: none;
 }
